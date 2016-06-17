@@ -1,0 +1,3 @@
+# keepalived 维护的VIP地址用ifconfig查看不到，不像lvs可以查看到。
+
+

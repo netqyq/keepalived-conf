@@ -1,0 +1,11 @@
+vrrp_script check_msyqld {
+
+    script "kill -0 mysqld"
+    interval 2
+}
+
+check_script {
+    check_mysqld
+}
+
+

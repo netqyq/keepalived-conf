@@ -1,0 +1,28 @@
+vrrp_script chk_mysqld {
+  script "/etc/keepalived/check_mysqld.sh"
+  interval 2
+
+}
+
+track_script {
+  chk_mysqld
+}
+
+
+#!/bin/bash
+MYSQL=/usr/bin/mysql
+MYSQL_HOST=localhost
+MYSQL_USER=root
+MYSQL_PASSWORD='xxxx'
+
+
+$MYSQL -h $MSYQL_HOST -u $MYSQL_USER -p$MYSQL_PASSWORD -e "show status;" > "/dev/null" 2>&1
+
+if [ $? = 0 ] ;then 
+  MYSQL_STATUS=0
+else
+  MYSQL_STATUS=1
+fi
+
+exit $MYSQL_STATUS
+

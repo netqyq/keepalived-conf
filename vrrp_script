@@ -1,0 +1,18 @@
+kill -0 nginx
+echo $?
+
+
+如果返回0，说明nginx运行正常
+
+kill -0 表示对进程的状态进行监控，如果进程异常返回1，如果正常返回0.
+
+
+vrrp_script check_mysqld {
+
+    script "kill -0 mysqld"
+    interval 2
+}
+
+track_script {
+    check_mysqld
+}

@@ -1,0 +1,3 @@
+keepalived + nginx
+当主服务器nginx停止运行，备用服务器将接管VIP，备用服务器将通告自己VIP的MAC地址，
+网络中的其他客户端的arp表中VIP对应的MAC地址条目会自动刷新。

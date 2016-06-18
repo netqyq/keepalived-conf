@@ -1,0 +1,12 @@
+nginx+keepalived
+
+server1:
+  ip:192.168.0.31
+  keepalived(master): vip 192.168.0.200
+  nginx:80
+  
+
+server2:
+  ip:192.168.0.32
+  keepalived(backup): vip 192.168.0.200
+  nginx:80

@@ -1,0 +1,25 @@
+virtual_server 192.168.0.88 80 {
+    delay_loop 6
+    lb_algo wrr
+    lb_kind DR
+    persistence_timeout 1
+    protocol TCP
+    real_server 192.168.0.21 80 {
+        weitht 3
+        TCP_CHECK {   # between TCP_CHECK and { , should have a blank.
+            connect_timeout 10
+            nb_get_retry 3
+            delay_before_retry 3
+            connect_port 80
+        }
+    }
+    real_server 192.168.0.22 80 {
+        weitht 3
+        TCP_CHECK {
+            connect_timeout 10
+            nb_get_retry 3
+            delay_before_retry 3
+            connect_port 80
+        }
+    }
+}

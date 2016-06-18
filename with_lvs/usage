@@ -1,0 +1,17 @@
+### roles
+  master 
+  backup
+  realserver1
+  realserver2
+
+### config steps
+  1. every real server need execute real-server.sh start to bind VIP address
+  2. master server(lvs + keepalived) use keepalived-master.conf
+  3. backup server(lvs + keepalived) use keepalived-backup.conf
+
+
+###　keepalived+lvs server
+  should install keepalived and ipvsadm
+  VIP fail over
+  health check for real server
+  

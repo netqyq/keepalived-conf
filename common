@@ -3,3 +3,14 @@ keepalived 维护的VIP地址用ifconfig查看不到，需要用ip addr
 lvs可以用ifconfig查看到。
 
 
+# check lvs(ipvs)
+ipvsadm -L -n
+ipvsadm -ln
+ipvsadm -ln -c
+man ipvsadm
+
+
+# keepalived.org
+
+# install ipvsadm
+yum install ipvsadm
